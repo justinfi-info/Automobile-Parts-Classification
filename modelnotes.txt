@@ -14,7 +14,7 @@ Model Training / Export Notes
 3) Model
    - Backbone: MobileNetV2 (ImageNet weights), replace top with dense head for 40 classes.
    - Loss/metrics: sparse categorical crossentropy, accuracy.
-   - Train for ~15–30 epochs with early stopping on val_loss.
+   - Train for ~15-30 epochs with early stopping on val_loss.
 
 4) Evaluation
    - Compute accuracy, per-class precision/recall/F1.
