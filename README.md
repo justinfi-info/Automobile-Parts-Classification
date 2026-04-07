@@ -24,7 +24,7 @@ Streamlit demo for classifying 40 automobile parts with a TensorFlow Lite model.
 
 ## Setup (Windows/PowerShell)
 ```powershell
-cd "c:\Users\Mujee\Downloads\ML Projects\Car parts"
+cd "c:\Downloads\ML Projects\Car parts"
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirement.txt
