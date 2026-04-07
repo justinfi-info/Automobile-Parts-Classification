@@ -5,7 +5,7 @@
 From your workspace root:
 
 ```powershell
-cd "c:\Users\Mujee\Downloads\ML Projects\Car parts"
+cd "c:\ML Projects\Car parts"
 ```
 
 ## 2) (Recommended) Create + activate a venv
