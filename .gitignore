@@ -1,0 +1,22 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+env/
+venv/
+
+# Editors
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Project data (large)
+Data/
+
+# Streamlit caches
+.streamlit/__pycache__/

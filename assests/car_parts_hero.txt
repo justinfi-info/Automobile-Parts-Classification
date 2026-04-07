@@ -1,0 +1,1 @@
+Instantly identify 40+ automobile parts with our optimized MobileNetV2 TFLite classifier.
