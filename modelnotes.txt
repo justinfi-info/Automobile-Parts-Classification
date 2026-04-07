@@ -1,0 +1,37 @@
+Model Training / Export Notes
+=============================
+
+1) Dataset
+   - Source: `car parts 50/train/<class>/...`
+   - Classes: 40 (folder names define labels)
+   - Split suggestion: 80/10/10 train/val/test using tf.data or DataLoader.
+
+2) Preprocessing
+   - Resize to match model input (e.g., 224x224 for MobileNetV2).
+   - Normalize to [0,1] floats.
+   - Optional augmentations: random flip, rotation, color jitter.
+
+3) Model
+   - Backbone: MobileNetV2 (ImageNet weights), replace top with dense head for 40 classes.
+   - Loss/metrics: sparse categorical crossentropy, accuracy.
+   - Train for ~15–30 epochs with early stopping on val_loss.
+
+4) Evaluation
+   - Compute accuracy, per-class precision/recall/F1.
+   - Save a classification report and confusion matrix on the held-out test set.
+
+5) Export to TFLite
+   - Convert the Keras model to TFLite (with int8 or float16 quantization if size/speed needed).
+   - Example (from notebook):
+       converter = tf.lite.TFLiteConverter.from_keras_model(model)
+       converter.optimizations = [tf.lite.Optimize.DEFAULT]
+       tflite_model = converter.convert()
+       open("compressed_model.tflite", "wb").write(tflite_model)
+   - Copy the resulting `compressed_model.tflite` to `Automobile-Parts-Classification/models/`.
+
+6) Smoke test
+   - Load the TFLite file and run inference on a few sample images to confirm output shape (40 probs) and sensible confidences.
+
+7) Streamlit wiring
+   - The app reads labels from `car parts 50/train/` folder names and the model from `models/compressed_model.tflite`.
+   - Ensure both paths exist and the model file is non-empty before running the UI.

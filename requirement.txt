@@ -1,4 +1,10 @@
-streamlit>=1.30
-numpy>=1.23
-pillow>=10.0
-tensorflow>=2.12; python_version < "3.13"
+streamlit
+tensorflow
+tensorflow-intel
+pillow
+numpy
+pandas
+plotly
+scikit-learn
+opencv-python
+scipy
